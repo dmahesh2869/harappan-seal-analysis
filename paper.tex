@@ -402,18 +402,21 @@ due to the smaller tail sample.
 
 \begin{table}[H]
 \centering
-\caption{Distribution comparison tests for guild size data using complete Appendix 7.1 dataset. 
-Positive $R$ favors power law; negative $R$ favors the alternative. 
+\caption{Distribution tests for guild size data using complete Appendix 7.1 dataset. 
+First row shows exponential goodness-of-fit bootstrap test (rules out exponential). 
+Remaining rows show log-likelihood ratio tests: positive $R$ favors power law; negative $R$ favors alternative. 
 Note: $n_{\text{tail}} = 47 < 100$ (below recommended threshold).}
 \label{tab:appendix_compare}
 \begin{tabular}{@{}lrrl@{}}
 \toprule
-Alternative & $R$ & $p$ & Interpretation \\
+Test & $R$ & $p$ & Interpretation \\
 \midrule
-Lognormal & $-0.90$ & 0.340 & No significant difference \\
-Exponential & 1.25 & 0.657 & Power law favored, not significant \\
-Stretched exponential & $-1.07$ & 0.319 & No significant difference \\
-Truncated power law & $-1.29$ & 0.108 & No significant difference \\
+Exponential (GoF bootstrap) & — & $<0.001$ & \textbf{Exponential rejected} \\
+\midrule
+Lognormal (vs PL) & $-0.90$ & 0.340 & No significant difference \\
+Exponential (vs PL) & 1.25 & 0.657 & Power law favored, not significant \\
+Stretched exponential (vs PL) & $-1.07$ & 0.319 & No significant difference \\
+Truncated power law (vs PL) & $-1.29$ & 0.108 & No significant difference \\
 \bottomrule
 \end{tabular}
 \end{table}
