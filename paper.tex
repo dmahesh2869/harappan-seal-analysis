@@ -723,6 +723,26 @@ foundation is entirely his. Any errors in interpretation are our own.
 Statistical analysis, code development, and manuscript preparation were assisted by 
 GitHub Copilot (Claude, Anthropic).
 
+\section*{Data Availability}
+
+All code, analysis scripts, data files, validation suite, and reproducibility documentation 
+are openly available in the GitHub repository: 
+\href{https://github.com/dmahesh2869/harappan-seal-analysis}{dmahesh2869/harappan-seal-analysis}. 
+The repository includes:
+
+\begin{itemize}
+    \item Python analysis scripts (analyze\_guilds.py, analyze\_appendix71.py, analyze\_sites.py, 
+    synthetic\_guild.py) implementing the power law fitting and goodness-of-fit tests
+    \item Data files (guilds.txt, guilds\_valid.txt, sites\_table.txt)
+    \item Generated figures (guilds.png, appendix71.png, sites.png)
+    \item VALIDATE.py for reproducibility sanity checks
+    \item RUN\_ALL.py for end-to-end pipeline validation
+    \item Comprehensive reproducibility guide (REPRODUCIBILITY.md)
+    \item MIT License for code and CC-BY-4.0 for documentation
+\end{itemize}
+
+All analysis is deterministic and fully reproducible using Python 3.8+ with powerlaw v2.0.0.
+
 \section{Conclusion}
 
 Analysis of published Harappan seal data reveals that both the distribution of 
