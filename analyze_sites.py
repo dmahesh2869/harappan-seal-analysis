@@ -85,5 +85,5 @@ ax2.grid(True, which='both', ls=':', alpha=0.5)
 
 plt.tight_layout()
 plt.savefig("sites.png", dpi=150)  # Save the figure as a high-res PNG
-print("✓ Log-log plots saved to: sites.png")
-plt.show()
+print("[OK] Log-log plots saved to: sites.png")
+# plt.show()  # Uncomment to view plot interactively

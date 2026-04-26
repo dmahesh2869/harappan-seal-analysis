@@ -100,6 +100,6 @@ ax2.grid(True, which='both', ls =':', alpha=0.5)
 
 plt.tight_layout()
 plt.savefig('guilds.png', dpi=150)
-print("✓ Log-log plots saved to: guilds.png")
-plt.show()
+print("[OK] Log-log plots saved to: guilds.png")
+# plt.show()  # Uncomment to view plot interactively
 

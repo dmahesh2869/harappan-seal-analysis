@@ -89,5 +89,6 @@ ax.legend(fontsize=10)
 ax.grid(True, which='both', ls=':', alpha=0.5)
 
 plt.tight_layout()
-plt.show()
-print("✓ Closed plot window")
+plt.savefig('appendix71.png', dpi=150, bbox_inches='tight')
+print("[OK] Plot saved to: appendix71.png")
+# plt.show()  # Uncomment to view plot interactively
