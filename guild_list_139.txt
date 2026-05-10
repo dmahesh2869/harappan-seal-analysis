@@ -1,0 +1,171 @@
+======================================================================
+ALL 139 OFFERING STAND TYPES FROM sites_guild.txt
+======================================================================
+Total types: 139
+Jamison's Table 7.6 claim: 114 types
+Appendix 7.1 actual count: 139 types
+
+ANALYSIS OF STAND TYPE COUNTS
+----------------------------------------------------------------------
+Numeric stands in sites_guild.txt: 112
+Missing from 1-114 range: [18, 19]
+Variant stands (with letter suffixes): 27
+
+MISSING STANDS (consolidated or excluded):
+  Stand 18: not found in raw data
+  Stand 19: not found in raw data
+
+Formula: 114 (Jamison's base) -> 139 (actual in cleaned dataset)
+  Stands consolidated/excluded: 2
+  Variant types added: 27
+
+NUMERIC STANDS (1-114, minus consolidated):
+----------------------------------------------------------------------
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114
+
+VARIANT STANDS (with letter suffixes):
+----------------------------------------------------------------------
+16?, 1b, 26b, 27b, 28a, 34b, 35b, 38b, 39d, 40b, 42b, 4a, 56b, 58b, 58c, 61b, 63b, 64b, 64c, 64e, 66b, 67b, 71b, 81b, 88b, 89b, 8b
+Total variants: 27
+
+COMPLETE LIST (sorted by frequency, with seal counts):
+----------------------------------------------------------------------
+    114:   2 seals
+    113:   1 seals
+    112:   1 seals
+    111:   1 seals
+    110:   1 seals
+    109:   1 seals
+    108:   2 seals
+    107:   1 seals
+    106:   1 seals
+    105:   1 seals
+    104:   2 seals
+    103:   1 seals
+    102:   1 seals
+    101:   1 seals
+    100:   1 seals
+     99:   1 seals
+     98:   1 seals
+     97:   1 seals
+     96:   2 seals
+     95:   1 seals
+     94:   3 seals
+     93:   1 seals
+     92:   1 seals
+     91:   1 seals
+     90:   2 seals
+     89:   3 seals
+     88:   1 seals
+     87:   1 seals
+     86:   1 seals
+     85:   1 seals
+     84:   6 seals
+     83:   1 seals
+     82:   2 seals
+     81:   6 seals
+     80:   1 seals
+     79:   1 seals
+     78:   3 seals
+     77:   1 seals
+     76:   2 seals
+     75:   1 seals
+     74:   1 seals
+     73:   8 seals
+     72:   4 seals
+     71:   3 seals
+     70:   1 seals
+     69:   1 seals
+     68:   5 seals
+     67:   2 seals
+     66:   5 seals
+     65:   3 seals
+     64:   4 seals
+     63:   2 seals
+     62:   6 seals
+     61:   2 seals
+     60:   1 seals
+     59:   2 seals
+     58:   3 seals
+     57:   1 seals
+     56:   6 seals
+     55:   2 seals
+     54:   4 seals
+     53:   9 seals
+     52:   2 seals
+     51:   1 seals
+     50:   2 seals
+     49:   1 seals
+     48:   6 seals
+     47:   4 seals
+     46:   3 seals
+     45:   1 seals
+     44:  16 seals
+     43:   1 seals
+     42:   5 seals
+     41:   1 seals
+     40:  12 seals
+     39:  10 seals
+     38:   4 seals
+     37:   1 seals
+     36:   4 seals
+     35:   2 seals
+     34:  12 seals
+     33:   4 seals
+     32:  19 seals
+     31:   5 seals
+     30:  14 seals
+     29:   2 seals
+     28:   3 seals
+     27:   3 seals
+     26:   3 seals
+     25:  11 seals
+     24:   1 seals
+     23:   2 seals
+     22:   1 seals
+     21:   1 seals
+     20:   2 seals
+     17:   1 seals
+     16:  23 seals
+     15:   3 seals
+     14:   3 seals
+     13:   2 seals
+     12:   2 seals
+     11:   1 seals
+     10:   2 seals
+      9:   3 seals
+      8:   2 seals
+      7:   1 seals
+      6:   1 seals
+      5:   2 seals
+      4:   4 seals
+      3:   4 seals
+      2:   3 seals
+      1:  15 seals
+    89b:   1 seals
+    88b:   1 seals
+    81b:   1 seals
+    71b:   1 seals
+    67b:   1 seals
+    66b:   1 seals
+    64b:   1 seals
+    64c:   1 seals
+    64e:   1 seals
+    63b:   3 seals
+    61b:  11 seals
+    58b:   1 seals
+    58c:   1 seals
+    56b:   1 seals
+    42b:   1 seals
+    40b:   3 seals
+    39d:   2 seals
+    38b:   1 seals
+    35b:   2 seals
+    34b:   1 seals
+    28a:   1 seals
+    27b:   1 seals
+    26b:   1 seals
+    16?:   2 seals
+     8b:   1 seals
+     4a:   1 seals
+     1b:   1 seals
