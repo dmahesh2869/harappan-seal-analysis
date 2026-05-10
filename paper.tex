@@ -366,18 +366,18 @@ size distribution is well described by a power law with $\alpha \approx 2.3$--$2
 \subsubsection{Complete Data Validation}
 
 To independently verify that power law structure exists in the actual per-type frequency data, 
-we analyzed the complete, unfiltered Appendix 7.1 dataset from \citet{jamison2017} (500 seals, 134 offering stand types). 
+we analyzed the complete, unfiltered Appendix 7.1 dataset from \citet{jamison2017} (413 seals, 139 offering stand types, after excluding 82 entries with unidentified stands and 5 blank entries). 
 This dataset contains the raw frequency counts for each type, eliminating the need for binning 
 or reconstruction:
 
 \begin{itemize}
-    \item Power law exponent: $\alpha = 2.41$
+    \item Power law exponent: $\alpha = 2.3591$
     \item Lower bound: $x_{\min} = 3.0$
-    \item KS distance: $D = 0.0577$
-    \item Goodness-of-fit $p = 0.71$ (bootstrap, 2500 iterations) $\checkmark$ PASSES
+    \item KS distance: $D = 0.051$
+    \item Goodness-of-fit $p = 0.98$ (bootstrap, 2500 iterations) $\checkmark$ PASSES
 \end{itemize}
 
-The exponent $\alpha \approx 2.41$ converges closely with the Table 7.6 estimate 
+The exponent $\alpha \approx 2.3591$ converges closely with the Table 7.6 estimate 
 ($\alpha \approx 2.36$ from constrained reconstruction), validating the core power law 
 hypothesis across both methodologies. The bootstrap goodness-of-fit test passes the 
 \citet{clauset2009power} threshold ($p > 0.1$), confirming power law as a plausible 
@@ -385,11 +385,11 @@ generative model for the actual per-type distribution. Applying the same bootstr
 exponential distribution yields $p_{\text{GoF}} < 0.001$ (0/2500), formally ruling out 
 exponential as a plausible model for the complete dataset as well.
 
-**Important caveat**: The optimal lower bound $x_{\min} = 3.0$ yields only $n_{\text{tail}} = 47$ 
+**Important caveat**: The optimal lower bound $x_{\min} = 3.0$ yields only $n_{\text{tail}} = 46$ 
 types in the power law regime, which falls below the $n_{\text{tail}} \geq 100$ threshold 
 recommended by \citet{clauset2009power} for reliable parameter estimation. Consequently, 
 while the complete data confirms that power law structure exists in the distribution 
-($p_{\text{GoF}} = 0.71$), the parameter estimate $\alpha = 2.41$ is preliminary. 
+($p_{\text{GoF}} = 0.98$), the parameter estimate $\alpha = 2.3591$ is preliminary. 
 Table 7.6 analysis, with $n_{\text{tail}} = 114$ types, provides more robust exponent estimates. 
 The two analyses together demonstrate that power law structure is robust to methodological 
 approach, while parameter estimates are best based on the larger tail sample in Table 7.6.
@@ -405,7 +405,7 @@ due to the smaller tail sample.
 \caption{Distribution tests for guild size data using complete Appendix 7.1 dataset. 
 First row shows exponential goodness-of-fit bootstrap test (rules out exponential). 
 Remaining rows show log-likelihood ratio tests: positive $R$ favors power law; negative $R$ favors alternative. 
-Note: $n_{\text{tail}} = 47 < 100$ (below recommended threshold).}
+Note: $n_{\text{tail}} = 46 < 100$ (below recommended threshold).}
 \label{tab:appendix_compare}
 \begin{tabular}{@{}lrrl@{}}
 \toprule
@@ -424,8 +424,8 @@ Truncated power law (vs PL) & $-1.29$ & 0.108 & No significant difference \\
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{appendix71.png}
-    \caption{Log-log rank-frequency plot of all 134 offering stand types from the complete dataset \citep{jamison2017}. 
-    The linear trend in log-log space confirms power law structure despite the smaller tail sample ($n_{\text{tail}} = 47$).}
+    \caption{Log-log rank-frequency plot of all 139 offering stand types from the complete dataset \citep{jamison2017}. 
+    The linear trend in log-log space confirms power law structure despite the smaller tail sample ($n_{\text{tail}} = 46$).}
     \label{fig:appendix71}
 \end{figure}
 
@@ -491,17 +491,17 @@ the site level: the top few cities are disproportionately dominant trade hubs.
 \centering
 \caption{Comparison of power law fits for guild and site distributions. 
 The Appendix 7.1 row provides independent confirmation of power law structure; 
-parameter estimate is preliminary due to $n_{\text{tail}} = 47 < 100$.}
+parameter estimate is preliminary due to $n_{\text{tail}} = 46 < 100$.}
 \label{tab:comparison}
 \begin{tabular}{@{}lcccc@{}}
 \toprule
 Metric & Guilds (bin-mean) & Guilds (reconstructed) & Guilds (complete) & Sites \\
 \midrule
-$\alpha$ & 2.18 & 2.49 $\pm$ 0.14 & 2.41 & 1.55 \\
+$\alpha$ & 2.18 & 2.49 $\pm$ 0.14 & 2.36 & 1.55 \\
 $x_{\min}$ & 1.0 & 1.0 & 3.0 & 2.0 \\
-KS $D$ & 0.28 & 0.059 $\pm$ 0.011 & 0.0577 & 0.094 \\
-GoF $p$ (bootstrap) & $<0.01$ & 0.91 & 0.71 & 0.76 \\
-$n_{\text{tail}}$ & --- & 114 & 47$^*$ & 14 \\
+KS $D$ & 0.28 & 0.059 $\pm$ 0.011 & 0.051 & 0.094 \\
+GoF $p$ (bootstrap) & $<0.01$ & 0.91 & 0.98 & 0.76 \\
+$n_{\text{tail}}$ & --- & 114 & 46$^*$ & 14 \\
 Data type & Binned & Constrained random & Complete unfiltered & Exact \\
 \bottomrule
 \multicolumn{5}{l}{\footnotesize $^*$Below $n \geq 100$ threshold; parameter estimate is preliminary.}

@@ -2,33 +2,41 @@
 Clauset et al. (2009) Section 6: Test whether the exponential distribution
 can be ruled out via its own GoF bootstrap.
 
-Uses complete Appendix 7.1 data (no reconstruction needed).
+Uses corrected Appendix 7.1 data from sites_guild.txt (consolidated, n/a and blank excluded).
+413 seals, 139 offering stand types.
 """
 import powerlaw
 import numpy as np
 from scipy import stats
 import warnings
 
-# Parse guilds_valid.txt to get actual per-type frequencies
-def parse_guilds_valid(filename):
-    """Extract stand type counts from guilds_valid.txt"""
-    counts = []
+# Parse sites_guild.txt to get actual per-type frequencies
+def parse_sites_guild(filename):
+    """Extract stand type counts from sites_guild.txt (consolidated, n/a and blank excluded)"""
+    stand_counts = {}
+    
     with open(filename, 'r') as f:
         for line in f:
-            if '=' in line or '-' in line or 'Stand Type' in line or 'TOTAL' in line or 'Valid Seals' in line:
-                continue
+            line = line.strip()
             
-            parts = line.strip().split()
-            if len(parts) >= 2:
-                try:
-                    count = int(parts[1])
-                    counts.append(count)
-                except (ValueError, IndexError):
-                    continue
+            # Look for STAND X (Total: Y) lines
+            if line.startswith('STAND ') and '(Total:' in line:
+                # Extract stand name and total count
+                # Format: "STAND 16 (Total: 25)"
+                parts = line.split('(Total:')
+                if len(parts) == 2:
+                    stand_name = parts[0].replace('STAND ', '').strip()
+                    count_str = parts[1].replace(')', '').strip()
+                    try:
+                        total_count = int(count_str)
+                        stand_counts[stand_name] = total_count
+                    except ValueError:
+                        continue
     
-    return counts
+    # Return list of counts
+    return list(stand_counts.values())
 
-data = parse_guilds_valid('guilds_valid.txt')
+data = parse_sites_guild('sites_guild.txt')
 
 print(f"Data: {len(data)} types, {sum(data)} total seals")
 print(f"Sorted (desc): {sorted(data, reverse=True)[:20]}...")
