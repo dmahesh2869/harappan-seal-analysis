@@ -7,7 +7,7 @@ This repository contains the complete analysis supporting the power law hypothes
 This project analyzes the distribution of seal and offering stand types in the Indus Valley Civilization (Harappan culture), demonstrating that both follow power law distributions. The analysis includes:
 
 - **Table 7.6 Analysis**: Constrained reconstruction (114 types, 429 seals)
-- **Appendix 7.1 Analysis**: Complete unfiltered data (134 types, 500 seals)  
+- **Appendix 7.1 Analysis**: Complete dataset (413 valid seals, 139 types after excluding 82 unidentified and 5 blank entries)  
 - **Site Distribution**: Geographical hub-and-spoke pattern (19 sites)
 - **Exponential GoF Tests**: Formal ruling out of exponential alternatives
 
@@ -16,12 +16,12 @@ This project analyzes the distribution of seal and offering stand types in the I
 | Methodology | Sample | Types | Exponent (α) | KS Distance | GoF p-value | Status |
 |---|---|---|---|---|---|---|
 | Table 7.6 (Constrained) | 429 seals | 114 | 2.36 | 0.044 | 0.91 | ✓ PASS |
-| Appendix 7.1 (Complete) | 500 seals | 134 | 2.41 | 0.058 | 0.71 | ✓ PASS |
+| Appendix 7.1 (Complete) | 413 seals | 139 | 2.3591 | 0.051 | 0.98 | ✓ PASS |
 | Site Distribution | 19 sites | — | 1.55 | 0.094 | 0.76 | ✓ PASS |
 
 **Exponential Hypothesis**: Rejected at p<0.001 (both datasets)
 
-**Convergence**: Exponents from independent analyses align closely (α = 2.36 vs 2.41), confirming robustness of power law structure despite methodological differences.
+**Convergence**: Exponents from independent analyses align closely (α = 2.36 vs 2.3591), confirming robustness of power law structure despite methodological differences.
 
 ## Data Pipeline
 
@@ -30,7 +30,7 @@ Appendix 7.1 Raw Table (Jamison 2017)
         ↓
 analyze_allsites.py [Data extraction & cleaning]
         ↓
-guilds_valid.txt [134 offering stand types, 500 seals]
+guils_valid.txt [139 offering stand types, 413 seals]
         ↓
 analyze_appendix71.py [Distribution fitting & GoF testing]
 ```
@@ -41,7 +41,7 @@ analyze_appendix71.py [Distribution fitting & GoF testing]
 Parses Appendix 7.1 from Jamison (2017) and generates cleaned frequency data.
 
 **Output:**
-- `guilds_valid.txt`: Per-type frequencies (134 rows)
+- `guilds_valid.txt`: Per-type frequencies (139 rows)
 - Supporting data files for analysis
 
 ### 2. **analyze_guilds.py**
@@ -68,7 +68,7 @@ All 114 types in tail (n_tail = 114)
 ```
 
 ### 3. **analyze_appendix71.py**
-Power law analysis of Appendix 7.1 (complete unfiltered data, 134 types, 500 seals).
+Power law analysis of Appendix 7.1 (139 types, 413 seals with valid stands after excluding 82 unidentified and 5 blank entries).
 
 **Methodology:**
 - Fits power law to actual per-type frequencies from guilds_valid.txt
@@ -83,10 +83,10 @@ python analyze_appendix71.py
 
 **Results:**
 ```
-Exponent (α): 2.41
-KS Distance: 0.058
-GoF p-value: 0.71 ✓ PASSES
-n_tail = 47 (below Clauset ≥100 threshold, but GoF confirms structure)
+Exponent (α): 2.3591
+KS Distance: 0.051
+GoF p-value: 0.98 ✓ PASSES
+n_tail = 46 (below Clauset ≥100 threshold, but GoF confirms structure)
 ```
 
 ### 4. **analyze_sites.py**
