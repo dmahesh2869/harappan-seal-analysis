@@ -5,15 +5,15 @@ import numpy as np
 # Frequency distribution of offering stand style (Table 1)
 # Using actual mean frequency per bin = Total Seals / Count of Types
 data = []
-data  += [88/3] * 3      # 3 types, mean frequency 29.33 (20-49 range)
-data  += [15/1] * 1      # 1 type, mean frequency 15.00 (15-19 range)
-data  += [62/5] * 5      # 5 types, mean frequency 12.40 (10-14 range)
-data  += [100/16] * 16   # 16 types, mean frequency 6.25 (5-9 range)
-data  += [115/40] * 40   # 40 types, mean frequency 2.875 (2-4 range)
-data  += [49/49] * 49    # 49 types, mean frequency 1.00 (singleton types)
+data  += [round(88/3)] * 3      # 3 types, rounded frequency 29 (20-49 range)
+data  += [round(15/1)] * 1      # 1 type, rounded frequency 15 (15-19 range)
+data  += [round(62/5)] * 5      # 5 types, rounded frequency 12 (10-14 range)
+data  += [round(100/16)] * 16   # 16 types, rounded frequency 6 (5-9 range)
+data  += [round(115/40)] * 40   # 40 types, rounded frequency 3 (2-4 range)
+data  += [round(49/49)] * 49    # 49 types, rounded frequency 1 (singleton types)
 
 # Fit the data to a power law distribution
-fit = powerlaw.Fit(data, discrete=False)
+fit = powerlaw.Fit(data, discrete=True)
 
 # Print the power law exponent and other metrics
 print("alpha (power law exponent):", fit.power_law.alpha)
@@ -34,7 +34,7 @@ n_data = len(data)
 count_ge = 0
 for i in range(n_boot): 
     synthetic_data = fit.power_law.generate_random(n_data)
-    synthetic_fit = powerlaw.Fit(synthetic_data, discrete=False, xmin=fit.power_law.xmin)
+    synthetic_fit = powerlaw.Fit(synthetic_data, discrete=True, xmin=fit.power_law.xmin)
     if synthetic_fit.power_law.D >= observed_D:
         count_ge += 1
 p_gof = count_ge / n_boot

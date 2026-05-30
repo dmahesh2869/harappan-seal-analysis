@@ -1,12 +1,12 @@
 """
 Clauset et al. (2009) Section 6: Test whether the exponential distribution
-can be ruled out via its own GoF bootstrap.
+can be ruled out via its own GoF bootstrap using discrete methodology.
 
 Uses a single constrained reconstruction with the same logic as synthetic_guild.py.
+Implements discrete KS distance calculation matching powerlaw's methodology.
 """
 import powerlaw
 import numpy as np
-from scipy import stats
 import warnings
 
 np.random.seed(42)
@@ -32,6 +32,35 @@ def random_partition(total, n, lo, hi):
         if diff == 0 and all(lo <= v <= hi for v in adjusted):
             return adjusted.tolist()
 
+def discrete_ks_distance(data, cdf_func):
+    """
+    Compute Kolmogorov-Smirnov distance for discrete data.
+    Matches powerlaw's methodology for discrete distributions.
+
+    Parameters:
+    - data: array of observed values (sorted)
+    - cdf_func: function that takes x and returns theoretical CDF value
+
+    Returns:
+    - KS distance (maximum absolute difference between empirical and theoretical CDF)
+    """
+    data = np.sort(data)
+    n = len(data)
+
+    # Empirical CDF: at each point, the proportion of data <= that point
+    empirical_cdf = np.arange(1, n + 1) / n
+    theoretical_cdf = np.array([cdf_func(x) for x in data])
+
+    # KS statistic is max absolute difference
+    ks_distance = np.max(np.abs(empirical_cdf - theoretical_cdf))
+    return ks_distance
+
+def exponential_cdf(x, xmin, lambda_param):
+    """CDF of shifted exponential: P(X <= x) for X ~ Exp(lambda) + xmin"""
+    if x < xmin:
+        return 0.0
+    return 1.0 - np.exp(-lambda_param * (x - xmin))
+
 # Generate a reconstruction
 split_20 = bin_20_49_options[np.random.randint(len(bin_20_49_options))]
 bin_10_14 = random_partition(62, 5, 10, 14)
@@ -52,9 +81,9 @@ print(f"Power law fit: alpha={fit.power_law.alpha:.4f}, xmin={fit.power_law.xmin
 R, p = fit.distribution_compare('power_law', 'exponential')
 print(f"PL vs Exponential LR: R={R:.4f}, p={p:.4f}")
 
-# === Clauset et al. Section 6: Exponential GoF bootstrap ===
+# === Clauset et al. Section 6: Exponential GoF bootstrap (discrete methodology) ===
 print(f"\n{'='*60}")
-print(f"Clauset et al. competing distribution GoF test")
+print(f"Clauset et al. competing distribution GoF test (discrete)")
 print(f"{'='*60}")
 
 xmin = fit.power_law.xmin
@@ -62,38 +91,46 @@ data_above = np.array([x for x in data if x >= xmin])
 n_above = len(data_above)
 print(f"Data above xmin={xmin}: {n_above} points")
 
-# Fit exponential (shifted by xmin) via MLE
-# For exponential(λ) shifted by xmin: f(x) = λ*exp(-λ*(x-xmin))
-# MLE: λ = 1/mean(x - xmin)
+# Fit exponential (shifted by xmin) via discrete MLE
+# For exponential(λ) shifted by xmin: MLE λ = 1/mean(x - xmin)
 shifted = data_above - xmin
 mean_shifted = np.mean(shifted)
 if mean_shifted == 0:
-    mean_shifted = 0.5  # fallback for all-at-xmin case
+    mean_shifted = 0.5  # fallback
 exp_lambda = 1.0 / mean_shifted
 
-# KS test: compare empirical CDF of data_above to exponential CDF
-exp_D_obs = stats.kstest(data_above, 'expon', args=(xmin, 1.0/exp_lambda)).statistic
+# Compute discrete KS distance for observed data
+exp_D_obs = discrete_ks_distance(data_above,
+                                  lambda x: exponential_cdf(x, xmin, exp_lambda))
 print(f"Exponential MLE: lambda={exp_lambda:.4f}, scale={1/exp_lambda:.4f}")
 print(f"Exponential KS D (observed): {exp_D_obs:.4f}")
 
-# Bootstrap
+# === Bootstrap GoF test (Clauset et al. methodology) ===
+# Generate synthetic exponential data, fit, and compare KS distances
 n_boot = 2500
 count_ge = 0
 print(f"Running {n_boot} bootstrap iterations...")
+
 for j in range(n_boot):
-    # Generate synthetic from fitted exponential
-    syn = np.random.exponential(1.0/exp_lambda, n_above) + xmin
-    syn = np.round(syn).astype(int)  # discretize
-    syn = syn[syn >= xmin]
+    # Generate synthetic exponential data discretely
+    syn = np.random.exponential(1.0/exp_lambda, n_above)
+    syn = np.round(syn + xmin).astype(int)  # shift and discretize
+    syn = syn[syn >= xmin]  # ensure all >= xmin
+
     if len(syn) < 5:
         continue
-    # Refit exponential
+
+    # Refit exponential to synthetic data
     syn_shifted = syn - xmin
     syn_mean = np.mean(syn_shifted)
     if syn_mean == 0:
         syn_mean = 0.5
     syn_lambda = 1.0 / syn_mean
-    syn_D = stats.kstest(syn, 'expon', args=(xmin, 1.0/syn_lambda)).statistic
+
+    # Compute discrete KS distance
+    syn_D = discrete_ks_distance(syn, lambda x: exponential_cdf(x, xmin, syn_lambda))
+
+    # Count how many synthetic D >= observed D
     if syn_D >= exp_D_obs:
         count_ge += 1
 

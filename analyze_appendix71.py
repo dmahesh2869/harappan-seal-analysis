@@ -129,7 +129,7 @@ ax.set_xscale('log')
 ax.set_yscale('log')
 ax.set_xlabel('Type (ranked by frequency, log scale)', fontsize=12)
 ax.set_ylabel('Frequency (log scale)', fontsize=12)
-ax.set_title(f'Corrected All Types ({num_types} types, {total_seals} seals)\nvs. Paper claim (134 types, 500 seals)', fontsize=13)
+ax.set_title(f'All Types ({total_seals} seals, {num_types} types)', fontsize=13)
 ax.legend(fontsize=10)
 ax.grid(True, which='both', ls=':', alpha=0.5)
 
