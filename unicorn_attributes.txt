@@ -1,0 +1,182 @@
+0. Stand
+--------
+
+Table - Stand
+-------------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+20-49 3 88
+15-19 1 15
+10-14 5 62
+5-9 16 100
+2-4 40 115
+1 49 49
+Sum 114 429
+Table 7.6. Distribution of offering stand styles by frequency, count, and total number of seals.
+-------------
+
+1. Halter
+---------
+
+Table - Halter
+--------------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+50+ 3 272
+20-49 3 96
+15-19 0 0
+10-14 1 11
+5-9 7 39
+2-4 17 45
+1 18 18
+Sum 49 481
+Table 7.7. Distribution of halter styles by frequency, count, and total number of seals.
+--------------
+
+2. Ear
+------
+
+Table - Ear
+-----------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+20-49 7 186
+15-19 4 66
+10-14 6 70
+5-9 14 90
+2-4 11 29
+1 9 9
+Sum 51 450
+Table 7.8. Distribution of ear styles by frequency, count, and total number of seals.
+-----------
+
+3. Neck
+-------
+
+Table - Neck
+------------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+50+ 2 183
+20-49 3 82
+15-19 3 56
+10-14 4 44
+5-9 8 55
+2-4 13 38
+1 12 12
+Sum 45 470
+Table 7.9. Distribution of neck styles by frequency, count, and total number of seals.
+------------
+
+4. Eye
+------
+
+Table - Eye
+-----------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+20-49 5 194
+15-19 5 81
+10-14 5 61
+5-9 7 49
+2-4 9 30
+1 11 11
+Sum 42 426
+Table 7.10. Distribution of eye styles by frequency, count, and total number of seals.
+-----------
+
+5. Head
+-------
+
+Table - Head
+------------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+50+ 3 197
+20-49 4 112
+15-19 0 0
+10-14 3 37
+5-9 10 60
+2-4 10 26
+1 9 9
+Sum 39 441
+Table 7.11. Distribution of head styles by frequency, count, and total number of seals.
+------------
+
+6. Hoof
+-------
+
+Table - Front Hoof
+------------------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+50+ 1 95
+20-49 6 165
+15-19 4 68
+10-14 4 54
+5-9 8 45
+2-4 7 18
+1 6 6
+Sum 36 451
+Table 7.12. Distribution of front hoof styles by frequency, count, and total number of seals.
+------------------
+
+7. Pizzle
+---------
+
+Table - pizzle
+--------------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+50+ 3 236
+20-49 4 130
+15-19 0 0
+10-14 3 34
+5-9 6 41
+2-4 3 6
+1 0 0
+Sum 19 447
+Table 7.13. Distribution of pizzle styles by frequency, count, and total number of seals.
+--------------
+
+8. Legs
+-------
+
+Table - Leg
+-----------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+50+ 1 255
+20-49 4 165
+15-19 0 0
+10-14 1 11
+5-9 2 13
+2-4 5 12
+1 5 5
+Sum 18 461
+Table 7.14. Distribution of leg styles by frequency, count, and total number of seals.
+-----------
+
+9. Tail
+-------
+
+Table - Tail
+------------
+Frequency of Occurrence Count of Stylistic Types Total Number of Seals
+50+ 1 122
+20-49 6 170
+15-19 0 0
+10-14 2 25
+5-9 2 11
+2-4 12 33
+1 1 1
+Sum 24 362
+Table 7.15. Distribution of tail styles by frequency, count, and total number of seals.
+------------
+
+10. Horn
+--------
+
+Table - Horn
+------------
+Type Count Proportion of full sample (500)
+1 380 76.0
+2 9 2.0
+3 1 0.2
+4 24 4.8
+5 40 8.0
+0 45 9.0
+Total 500 100.0
+Table 7.16. Distribution of horn styles by frequency, count, and total number of seals.
+------------
