@@ -4,3 +4,13 @@
 # Ignore compiled Python files
 __pycache__/
 *.py[cod]
+
+# Additional local Python environments
+.venv38/
+.venv_new/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
