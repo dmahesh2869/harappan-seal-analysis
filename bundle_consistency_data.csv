@@ -1,0 +1,43 @@
+Stand,Attribute,Num_Sites,Sites_With_Data,Sites,Is_Consistent,Common_Types,Total_Unique_Types
+1,NECK,3,3,"Harappa, Lothal, Mohenjo-daro",False,NONE,10
+1,HALTER,3,3,"Harappa, Lothal, Mohenjo-daro",False,NONE,4
+1,EAR,3,3,"Harappa, Lothal, Mohenjo-daro",False,NONE,4
+16,NECK,3,3,"Harappa, Kalibangan, Mohenjo-daro",True,9,4
+16,HALTER,3,3,"Harappa, Kalibangan, Mohenjo-daro",True,1,4
+16,EAR,3,3,"Harappa, Kalibangan, Mohenjo-daro",False,NONE,15
+25,NECK,5,5,"Bagasra, Chanhu-daro, Harappa, Lothal, Mohenjo-daro",False,NONE,8
+25,HALTER,5,4,"Bagasra, Chanhu-daro, Harappa, Lothal, Mohenjo-daro",False,NONE,7
+25,EAR,5,5,"Bagasra, Chanhu-daro, Harappa, Lothal, Mohenjo-daro",False,NONE,8
+30,NECK,2,2,"Harappa, Mohenjo-daro",True,"25d, 25e",6
+30,HALTER,2,2,"Harappa, Mohenjo-daro",True,10,1
+30,EAR,2,2,"Harappa, Mohenjo-daro",True,26,1
+32,NECK,5,5,"Dholavira, Harappa, Jhukar, Lohumjodaro, Mohenjo-daro",False,NONE,6
+32,HALTER,5,5,"Dholavira, Harappa, Jhukar, Lohumjodaro, Mohenjo-daro",True,12,6
+32,EAR,5,5,"Dholavira, Harappa, Jhukar, Lohumjodaro, Mohenjo-daro",False,NONE,13
+34,NECK,2,2,"Harappa, Mohenjo-daro",True,29,6
+34,HALTER,2,2,"Harappa, Mohenjo-daro",True,"11, 2",4
+34,EAR,2,2,"Harappa, Mohenjo-daro",True,22,7
+39,NECK,3,3,"Harappa, Mohenjo-daro, Nausharo",False,NONE,6
+39,HALTER,3,3,"Harappa, Mohenjo-daro, Nausharo",False,NONE,4
+39,EAR,3,3,"Harappa, Mohenjo-daro, Nausharo",False,NONE,10
+40,NECK,3,3,"Allahdino, Chanhu-daro, Mohenjo-daro",False,NONE,3
+40,HALTER,3,3,"Allahdino, Chanhu-daro, Mohenjo-daro",True,12,2
+40,EAR,3,3,"Allahdino, Chanhu-daro, Mohenjo-daro",False,NONE,7
+44,NECK,4,4,"Allahdino, Chanhu-daro, Harappa, Mohenjo-daro",False,NONE,15
+44,HALTER,4,4,"Allahdino, Chanhu-daro, Harappa, Mohenjo-daro",False,NONE,11
+44,EAR,4,4,"Allahdino, Chanhu-daro, Harappa, Mohenjo-daro",False,NONE,13
+48,NECK,4,4,"Harappa, Kalibangan, Mohenjo-daro, Nausharo",False,NONE,5
+48,HALTER,4,4,"Harappa, Kalibangan, Mohenjo-daro, Nausharo",False,NONE,5
+48,EAR,4,4,"Harappa, Kalibangan, Mohenjo-daro, Nausharo",False,NONE,5
+53,NECK,3,3,"Balakot, Harappa, Mohenjo-daro",False,NONE,7
+53,HALTER,3,3,"Balakot, Harappa, Mohenjo-daro",False,NONE,5
+53,EAR,3,3,"Balakot, Harappa, Mohenjo-daro",False,NONE,7
+62,NECK,2,2,"Harappa, Mohenjo-daro",True,9,2
+62,HALTER,2,2,"Harappa, Mohenjo-daro",False,NONE,4
+62,EAR,2,2,"Harappa, Mohenjo-daro",True,13,5
+73,NECK,2,2,"Harappa, Mohenjo-daro",True,32b,6
+73,HALTER,2,2,"Harappa, Mohenjo-daro",True,10,4
+73,EAR,2,2,"Harappa, Mohenjo-daro",True,26,4
+81,NECK,3,3,"Dholavira, Harappa, Mohenjo-daro",False,NONE,4
+81,HALTER,3,3,"Dholavira, Harappa, Mohenjo-daro",True,12,4
+81,EAR,3,3,"Dholavira, Harappa, Mohenjo-daro",False,NONE,6
