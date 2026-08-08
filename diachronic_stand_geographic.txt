@@ -1,0 +1,39 @@
+====================================================================================================
+FLAT VIEW: Top 5 Stands per Period with Geographic Distribution
+====================================================================================================
+Period Stand Site Count
+3B 34 Harappa 2
+3B 34 Mohenjo-daro 2
+3B 16 Harappa 1
+3B 16 Kalibangan 1
+3B 16 Mohenjo-daro 2
+3B 32 Dholavira 1
+3B 32 Harappa 2
+3B 61b Harappa 3
+3B 25 Bagasra 1
+3B 25 Lothal 1
+3C 30 Harappa 10
+3C 30 Mohenjo-daro 4
+3C 1 Harappa 7
+3C 1 Lothal 1
+3C 40 Chanhu-daro 1
+3C 40 Mohenjo-daro 6
+3C 44 Allahdino 1
+3C 44 Harappa 3
+3C 16 Mohenjo-daro 4
+
+====================================================================================================
+PIVOT VIEW: Top 5 Stands per Period with Site Counts in Columns
+====================================================================================================
+Period Stand    Allahdino      Bagasra     Banawali  Chanhu-daro    Dholavira      Harappa   Kalibangan       Lothal Mohenjo-daro    Surkotada Total
+----------------------------------------------------------------------------------------------------------------------------------------------------
+3B     34               0            0            0            0            0            2            0            0            2            0     4
+3B     16               0            0            0            0            0            1            1            0            2            0     4
+3B     32               0            0            0            0            1            2            0            0            0            0     3
+3B     61b              0            0            0            0            0            3            0            0            0            0     3
+3B     25               0            1            0            0            0            0            0            1            0            0     2
+3C     30               0            0            0            0            0           10            0            0            4            0    14
+3C     1                0            0            0            0            0            7            0            1            0            0     8
+3C     40               0            0            0            1            0            0            0            0            6            0     7
+3C     44               1            0            0            0            0            3            0            0            0            0     4
+3C     16               0            0            0            0            0            0            0            0            4            0     4

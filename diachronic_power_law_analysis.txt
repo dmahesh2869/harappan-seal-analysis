@@ -1,0 +1,69 @@
+======================================================================
+DIACHRONIC POWER LAW ANALYSIS (Periods 3A, 3B, 3C)
+======================================================================
+
+PERIOD 3A
+----------------------------------------------------------------------
+Number of distinct stands: 3
+Total seals: 4
+Alpha (power law exponent): 2.0820
+KS Statistic (D): 0.031430
+xmin (cutoff): 1.0
+Goodness-of-fit p-value: 0.8510 (851/1000)
+[OK] Consistent with power law (p > 0.05)
+
+Top 10 stands by frequency:
+   1. Stand 50 :   2 seals
+   2. Stand 49 :   1 seals
+   3. Stand 12 :   1 seals
+
+======================================================================
+
+PERIOD 3B
+----------------------------------------------------------------------
+Number of distinct stands: 27
+Total seals: 45
+Alpha (power law exponent): 3.1241
+KS Statistic (D): 0.026626
+xmin (cutoff): 2.0
+Goodness-of-fit p-value: 0.9800 (980/1000)
+[OK] Consistent with power law (p > 0.05)
+
+Top 10 stands by frequency:
+   1. Stand 34 :   4 seals
+   2. Stand 16 :   4 seals
+   3. Stand 32 :   3 seals
+   4. Stand 61b:   3 seals
+   5. Stand 25 :   2 seals
+   6. Stand 104:   2 seals
+   7. Stand 39 :   2 seals
+   8. Stand 63b:   2 seals
+   9. Stand 48 :   2 seals
+  10. Stand blank:   2 seals
+
+======================================================================
+
+PERIOD 3C
+----------------------------------------------------------------------
+Number of distinct stands: 42
+Total seals: 93
+Alpha (power law exponent): 2.3253
+KS Statistic (D): 0.087052
+xmin (cutoff): 2.0
+Goodness-of-fit p-value: 0.6850 (685/1000)
+[OK] Consistent with power law (p > 0.05)
+
+Top 10 stands by frequency:
+   1. Stand 30 :  14 seals
+   2. Stand 1  :   8 seals
+   3. Stand 40 :   7 seals
+   4. Stand 44 :   4 seals
+   5. Stand 16 :   4 seals
+   6. Stand 32 :   3 seals
+   7. Stand 89 :   3 seals
+   8. Stand 56 :   3 seals
+   9. Stand 34 :   3 seals
+  10. Stand 62 :   3 seals
+
+======================================================================
+

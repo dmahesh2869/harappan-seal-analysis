@@ -1,0 +1,198 @@
+3A characteristic: Right facing bovines, bold, angular, curved, script deeply engraved.
+Script irregular, angular.
+
+3A Doubtful (3AD): Right facing animal (may be 3A - but doesn't provide contextual information)
+
+Transitional 3A/3B Carving styles : Engraving not angular but smooth and rounded; incised and hatched lines
+finer suggesting finer tips, sharper tools.
+
+3B characteristic: Edges are smoother and rounded - compared to sharp/angular of 3A. Unicorn is adorned
+more, greater number of incised or hatched lines. Smaller features such as ear, eye etc are more finely
+engraved. Overall proportion of body changes.
+Script deeper, broader than 3A. Usually placed at the top of the seal. Orientation more linear cf 3A. Longer!!
+(means more products :)). Often irregularly spaced; sometimes extend towards the animal motif.
+
+3AD         MD-BHR
+3AD         MD-KLB2
+T3A3B       M747    (doesn't seem to be there in appendix7.1.txt)
+T3A3B       M892    (doesn't seem to be there in appendix7.1.txt)
+T3A3B       M732
+T3A3B       KLB15
+T3A3B       M68
+T3A3B       M734    (Seems to be there in 3C period also even though mentioned in this transitional period)
+T3A3B       KLB2
+T3A3B       ND1
+
+-----------------------
+Period      ID#
+3A          H60
+3A          KLB16
+3A          KLB18
+3A          B1      (type on Table 9.6 BNWX is BX in appendix7.1.txt)
+3A          M977    (doesn't seem to be there in appendix7.1.txt)
+3A          BHR1    (doesn't seem to be there in appendix7.1.txt) - Bhirrana(?)
+3A          M738    (doesn't seem to be there in appendix7.1.txt)
+3A          KLB17
+3B          H13
+3B          H48
+3B          H449
+3B          H52
+3B          H56
+3B          H412
+3B          H416
+3B          H455
+3B          H457
+3B          H458   (seems a typo in Table 9.5 related to sequential numbers)
+3B          H461
+3B          H462
+3B          H464
+3B          H506
+3B          H1028  (doesn't seem to be there in appendix7.1.txt)
+3B          H67
+3B          H68
+3B          H1682
+3B          H1683  (doesn't seem to be there in appendix7.1.txt)
+3B          H65
+3B          H513
+3B          H515
+3B          M96
+3B          M97   (doesn't seem to be there in appendix7.1.txt)
+3B          M201
+3B          M802
+3B          M931
+3B          M23
+3B          M24
+3B          M627  (doesn't seem to be there in appendix7.1.txt)
+3B          M662
+3B          M733  (doesn't seem to be there in appendix7.1.txt)
+3B          M1673
+3B          KLB4
+3B          KLB8
+3B          KLB13
+3B          KLB22
+3B          L10
+3B          L12
+3B          L28
+3B          BSR-7197
+3B          BSR-8288
+3B          H37
+3B          DHR-349 (doesn't seem to be there in appendix7.1.txt)
+3B          H51
+3B          H1670
+3B          FMA3   (doesn't seem to be there in appendix7.1.txt)
+3B          H408
+3B          KLB5
+3B          M782   (doesn't seem to be there in appendix7.1.txt)
+3B          DHR-346 (doesn't seem to be there in appendix7.1.txt)
+3B          M730  (doesn't seem to be there in appendix7.1.txt)
+3B          M731  (doesn't seem to be there in appendix7.1.txt)
+3B          L5
+3B          L39
+3B          L38
+3B          BSR-2037
+3B          SKTD1  (typo in Table 9.5 SKD is SKTD in appendix7.1.txt)
+3C			H5
+3C			H6
+3C			H7
+3C			H1024
+3C			H2590
+3C			H20
+3C			H22
+3C			H23
+3C			H25
+3C			H46
+3C			H57
+3C			H473
+3C			H1032
+3C			H1047
+3C			H34
+3C			H62
+3C			H63
+3C			H474
+3C			H478
+3C			H479
+3C			H386
+3C			H477
+3C			H11
+3C			H21
+3C			H27
+3C			H450
+3C			H597
+3C			H3
+3C			H388
+3C			H268
+3C			H385
+3C			H405
+3C			H504
+3C			M629    (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M670
+3C			M899    (doesn't seem to be there in appendix7.1.txt)
+3C			M21     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M33     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M34     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M170    (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M1720   (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M19     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M44     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M52     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M58     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M77     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M13     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M16     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M54     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M85     (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M650    (doesn't seem to be there in appendix7.1.txt)
+3C			M709    (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M672    (typo in Table 9.6 - MDXYZ is MXYZ in appendix7.1.txt)
+3C			M675
+3C			M677
+3C			M42
+3C			M48
+3C			M1
+3C			M22
+3C			M49
+3C			M595
+3C			M38
+3C			M39
+3C			M79
+3C			M89
+3C			M92
+3C			M6
+3C			M9
+3C			M840
+3C			M981    (doesn't seem to be there in appendix7.1.txt)
+3C			H475
+3C			KLB19
+3C			H502
+3C			L42
+3C			H36
+3C			PK1     (doesn't seem to be there in appendix7.1.txt)
+3C			M819
+3C			AD3
+3C			M104
+3C			BSR-6719
+3C			M806
+3C			M807
+3C			M810
+3C			C8     (type on Table 9.6 CDX is CX in appendix7.1.txt)
+3C			M28
+3C			L1
+3C			M142
+3C			M145
+3C			M146
+3C			M148    (doesn't seem to be there in appendix7.1.txt)
+3C			M734
+3C			M740
+3C			M973
+3C			M1674
+3C			M1711
+3C			BLK1
+3C			BLK2
+3C			B2     (type on Table 9.6 BNWX is BX in appendix7.1.txt)
+3C			C5     (type on Table 9.6 CDX is CX in appendix7.1.txt)
+3C			C6     (type on Table 9.6 CDX is CX in appendix7.1.txt)
+3C			H9
+3C			H10
+3C			H47
+3C			M29
+---------------------
