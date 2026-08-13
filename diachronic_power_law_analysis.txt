@@ -2,14 +2,17 @@
 DIACHRONIC POWER LAW ANALYSIS (Periods 3A, 3B, 3C)
 ======================================================================
 
+Bootstrap random seed: 42
+
 PERIOD 3A
 ----------------------------------------------------------------------
 Number of distinct stands: 3
 Total seals: 4
-Alpha (power law exponent): 2.0820
-KS Statistic (D): 0.031430
+Alpha (power law exponent): 2.6898
+KS Statistic (D): 0.116267
 xmin (cutoff): 1.0
-Goodness-of-fit p-value: 0.8510 (851/1000)
+Goodness-of-fit p-value: 0.5250 (525/1000)
+Fit note: sparse-sample fallback used (fixed xmin = 1 for reproducibility).
 [OK] Consistent with power law (p > 0.05)
 
 Top 10 stands by frequency:
@@ -23,11 +26,11 @@ PERIOD 3B
 ----------------------------------------------------------------------
 Number of distinct stands: 27
 Total seals: 45
-Alpha (power law exponent): 3.1241
-KS Statistic (D): 0.026626
-xmin (cutoff): 2.0
-Goodness-of-fit p-value: 0.9800 (980/1000)
-[OK] Consistent with power law (p > 0.05)
+Alpha (power law exponent): 2.2649
+KS Statistic (D): 0.133314
+xmin (cutoff): 1.0
+Goodness-of-fit p-value: 0.0160 (16/1000)
+[FAIL] Less consistent with power law (p <= 0.05)
 
 Top 10 stands by frequency:
    1. Stand 34 :   4 seals
@@ -47,10 +50,10 @@ PERIOD 3C
 ----------------------------------------------------------------------
 Number of distinct stands: 42
 Total seals: 93
-Alpha (power law exponent): 2.3253
-KS Statistic (D): 0.087052
-xmin (cutoff): 2.0
-Goodness-of-fit p-value: 0.6850 (685/1000)
+Alpha (power law exponent): 2.0906
+KS Statistic (D): 0.066548
+xmin (cutoff): 1.0
+Goodness-of-fit p-value: 0.2140 (214/1000)
 [OK] Consistent with power law (p > 0.05)
 
 Top 10 stands by frequency:

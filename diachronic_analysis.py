@@ -5,14 +5,33 @@ Merges appendix7.1.txt with period data from diachronic_seal_data.txt.
 Uses Alstott's powerlaw library for power law analysis (same as analyze_appendix71.py).
 """
 
-import powerlaw
-import matplotlib.pyplot as plt
-import numpy as np
 import warnings
 from collections import defaultdict
 
+import matplotlib.pyplot as plt
+import numpy as np
+import powerlaw
+
 # Suppress scipy optimization warnings during bootstrap
 warnings.filterwarnings('ignore', category=Warning)
+
+RANDOM_SEED = 42
+
+
+def fit_period_powerlaw(frequencies):
+    """
+    Fit a discrete power law to a period's stand frequencies.
+
+    Automatic xmin selection in powerlaw can fail on very small samples like
+    period 3A (three stand counts with only two unique values). In that sparse
+    case, fall back to xmin=1 so the fit remains reproducible and the script
+    completes across environments.
+    """
+    unique_counts = len(set(frequencies))
+    if len(frequencies) <= 3 or unique_counts < 3:
+        return powerlaw.Fit(frequencies, discrete=True, xmin=1, verbose=False), True
+
+    return powerlaw.Fit(frequencies, discrete=True, verbose=False), False
 
 
 def parse_diachronic_data(filepath):
@@ -57,10 +76,9 @@ def parse_diachronic_data(filepath):
                 seal_id = parts[1]
                 
                 # Only process valid periods (3A, 3B, 3C)
-                if period in ['3A', '3B', '3C']:
-                    if seal_id:
-                        period_to_ids[period].append(seal_id)
-                        all_diachronic_ids.add(seal_id)
+                if period in ['3A', '3B', '3C'] and seal_id:
+                    period_to_ids[period].append(seal_id)
+                    all_diachronic_ids.add(seal_id)
     
     return period_to_ids, all_diachronic_ids
 
@@ -182,8 +200,11 @@ def save_stand_table(period_stand_counts, output_file):
         for period in sorted(period_stand_counts.keys()):
             stands = period_stand_counts[period]
             # Sort by count (descending), then by stand name for ties
-            for stand, count in sorted(stands.items(), key=lambda x: (-x[1], x[0])):
-                f.write(f"{period} {stand} {count}\n")
+            lines = [
+                f"{period} {stand} {count}\n"
+                for stand, count in sorted(stands.items(), key=lambda x: (-x[1], x[0]))
+            ]
+            f.writelines(lines)
 
 
 def extract_stand_geographic_by_period(appendix_file):
@@ -251,7 +272,7 @@ def save_stand_geographic_table(period_stand_site_counts, period_stand_totals, o
         
         # Collect all unique sites across all periods
         all_sites = set()
-        for period in period_stand_site_counts.keys():
+        for period in period_stand_site_counts:
             for stand in period_stand_site_counts[period]:
                 all_sites.update(period_stand_site_counts[period][stand].keys())
         
@@ -290,8 +311,9 @@ def power_law_analysis_by_period(period_stand_counts, output_file):
         f.write("=" * 70 + "\n")
         f.write("DIACHRONIC POWER LAW ANALYSIS (Periods 3A, 3B, 3C)\n")
         f.write("=" * 70 + "\n\n")
+        f.write(f"Bootstrap random seed: {RANDOM_SEED}\n\n")
         
-        for period in sorted(period_stand_counts.keys()):
+        for period_index, period in enumerate(sorted(period_stand_counts.keys())):
             stands = period_stand_counts[period]
             frequencies = sorted(stands.values(), reverse=True)
             
@@ -300,7 +322,7 @@ def power_law_analysis_by_period(period_stand_counts, output_file):
                 continue
             
             # Fit power law using Alstott's library
-            fit = powerlaw.Fit(frequencies, discrete=True)
+            fit, used_sparse_fallback = fit_period_powerlaw(frequencies)
             alpha = fit.power_law.alpha
             D = fit.power_law.D
             
@@ -310,6 +332,7 @@ def power_law_analysis_by_period(period_stand_counts, output_file):
             observed_D = D
             n_data = len(frequencies)
             count_ge = 0
+            np.random.seed(RANDOM_SEED + period_index)
             for i in range(n_boot):
                 synthetic_data = fit.power_law.generate_random(n_data)
                 synthetic_fit = powerlaw.Fit(synthetic_data, discrete=True, xmin=fit.power_law.xmin, verbose=False)
@@ -334,13 +357,15 @@ def power_law_analysis_by_period(period_stand_counts, output_file):
             f.write(f"KS Statistic (D): {D:.6f}\n")
             f.write(f"xmin (cutoff): {fit.power_law.xmin}\n")
             f.write(f"Goodness-of-fit p-value: {p_gof:.4f} ({count_ge}/{n_boot})\n")
+            if used_sparse_fallback:
+                f.write("Fit note: sparse-sample fallback used (fixed xmin = 1 for reproducibility).\n")
             
             if p_gof > 0.05:
-                f.write(f"[OK] Consistent with power law (p > 0.05)\n")
+                f.write("[OK] Consistent with power law (p > 0.05)\n")
             else:
-                f.write(f"[FAIL] Less consistent with power law (p <= 0.05)\n")
+                f.write("[FAIL] Less consistent with power law (p <= 0.05)\n")
             
-            f.write(f"\nTop 10 stands by frequency:\n")
+            f.write("\nTop 10 stands by frequency:\n")
             stand_freqs = sorted(stands.items(), key=lambda x: x[1], reverse=True)
             for i, (stand, count) in enumerate(stand_freqs[:10], 1):
                 f.write(f"  {i:2d}. Stand {stand:3s}: {count:3d} seals\n")
@@ -367,7 +392,7 @@ def plot_power_law_by_period(period_stand_counts, output_file):
         ranks = np.arange(1, len(frequencies) + 1)
         
         # Fit power law
-        fit = powerlaw.Fit(frequencies, discrete=True)
+        fit, _ = fit_period_powerlaw(frequencies)
         alpha = fit.power_law.alpha
         
         # Plot data
@@ -401,7 +426,7 @@ def main():
     
     # Step 1: Parse diachronic data
     print("Step 1: Parsing diachronic period data...")
-    period_to_ids, all_diachronic_ids = parse_diachronic_data('diachronic_seal_data.txt')
+    period_to_ids, _all_diachronic_ids = parse_diachronic_data('diachronic_seal_data.txt')
     print(f"  Periods found: {sorted(period_to_ids.keys())}")
     for period in sorted(period_to_ids.keys()):
         print(f"    {period}: {len(period_to_ids[period])} seals")
@@ -430,7 +455,7 @@ def main():
     print("Step 5: Creating diachronic_stand_table.txt...")
     period_stand_counts = extract_stand_by_period('appendix7.1.diachronic.txt')
     save_stand_table(period_stand_counts, 'diachronic_stand_table.txt')
-    print(f"  Stand types by period:")
+    print("  Stand types by period:")
     for period in sorted(period_stand_counts.keys()):
         num_stands = len(period_stand_counts[period])
         total_seals = sum(period_stand_counts[period].values())
@@ -441,7 +466,7 @@ def main():
     print("Step 6: Creating diachronic_stand_geographic.txt (top 5 stands per period)...")
     period_stand_site_counts, period_stand_totals = extract_stand_geographic_by_period('appendix7.1.diachronic.txt')
     save_stand_geographic_table(period_stand_site_counts, period_stand_totals, 'diachronic_stand_geographic.txt')
-    print(f"  Top 5 stands by period (with geographic distribution):")
+    print("  Top 5 stands by period (with geographic distribution):")
     for period in sorted(period_stand_site_counts.keys()):
         top_stands = sorted(period_stand_totals[period].items(), key=lambda x: -x[1])[:5]
         print(f"    {period}: {[s[0] for s in top_stands]}")
