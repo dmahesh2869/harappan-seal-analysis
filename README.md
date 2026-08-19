@@ -1,262 +1,144 @@
-# Harappan Power Law Analysis
+# Harappan Seal Power-Law and Confirmation-Bundle Analysis
 
-This repository contains the complete analysis supporting the power law hypothesis applied to Harappan civilization offering stand data. The analysis employs two complementary methodologies using data from Jamison (2017), validating power law distribution structure across both constrained and complete datasets.
+This repository reproduces the statistical analyses reported in the manuscript’s power-law and seal-authentication sections. The project uses Jamison’s published unicorn-seal typology to test whether offering-stand frequencies follow heavy-tailed distributions and whether stand identity is systematically associated with anatomical attributes in a confirmation protocol.
 
 ## Overview
 
-This project analyzes the distribution of seal and offering stand types in the Indus Valley Civilization (Harappan culture), demonstrating that both follow power law distributions. The analysis includes:
+The analysis is built around the empirical dataset described in the manuscript and uses the complete Appendix 7.1 attribute table as the canonical source for seal-level distribution fitting and association tests. The repository supports the following components of the study:
 
-- **Table 7.6 Analysis**: Constrained reconstruction (114 types, 429 seals)
-- **Appendix 7.1 Analysis**: Complete dataset (413 valid seals, 139 types after excluding 82 unidentified and 5 blank entries)  
-- **Site Distribution**: Geographical hub-and-spoke pattern (19 sites)
-- **Exponential GoF Tests**: Formal ruling out of exponential alternatives
+- Power-law fitting for all 11 seal attributes
+- Formal comparison of the offering stand against exponential and alternative heavy-tailed models
+- Global stand-attribute association tests via Cramér’s V
+- Tiered confirmation-bundle analysis across the top 5, 10, and 15 stand types
+- Diachronic robustness checks of the power-law pattern over the Harappan sequence
 
-## Key Findings
+## Key findings from the manuscript
 
-| Methodology | Sample | Types | Exponent (α) | KS Distance | GoF p-value | Status |
-|---|---|---|---|---|---|---|
-| Table 7.6 (Bin-mean) | 429 seals | 114 | 2.594 | 0.135 | 0.110 | ✓ PASS |
-| Table 7.6 (Constrained Reconstruction) | 429 seals | 114 | 2.36 | 0.044 | 0.91 | ✓ PASS |
-| Appendix 7.1 (Complete) | 413 seals | 139 | 2.3591 | 0.051 | 0.98 | ✓ PASS |
-| Site Distribution | 19 sites | — | 1.55 | 0.094 | 0.76 | ✓ PASS |
+### Power-law structure
 
-**Exponential Hypothesis**: Rejected at p<0.001 (all datasets)
+The strongest evidence for the offering stand comes from the complete Appendix 7.1 dataset:
 
-**Convergence**: All three power law estimates (α = 2.594, 2.36, 2.3591) cluster tightly in the range 2.3–2.6, confirming robustness of power law structure across different methodologies and data sources.
+| Attribute | Types | Seals | $\alpha$ | $x_{min}$ | $D$ | GoF $p$ | Interpretation |
+|---|---:|---:|---:|---:|---:|---:|---|
+| Stand | 139 | 413 | 2.3591 | 3.0 | 0.0514 | 0.9764 | Power law compatible |
+| Ear | 52 | 438 | 2.4210 | 7.0 | 0.1035 | 0.4064 | Compatible |
+| Neck | 72 | 458 | 2.5234 | 7.0 | 0.0925 | 0.4700 | Compatible |
+| Hoof | 38 | 442 | 2.9396 | 13.0 | 0.0655 | 0.8936 | Compatible |
+| Leg | 18 | 449 | 1.4175 | 1.0 | 0.0714 | 0.8808 | BHS-like drift regime |
+| Tail | 25 | 351 | 1.6333 | 2.0 | 0.1125 | 0.5708 | BHS-like drift regime |
+| Halter | 55 | 470 | 1.7537 | 2.0 | 0.0801 | 0.7452 | BHS-like drift regime |
+| Pizzle | 20 | 436 | 1.7606 | 5.0 | 0.1287 | 0.5200 | BHS-like drift regime |
+| Head | 39 | 431 | 1.8454 | 4.0 | 0.1016 | 0.5040 | BHS-like drift regime |
 
-## Data Pipeline
+The offering stand is the clearest commercial signal in the analysis: its power-law fit is the strongest and most stable, with the highest GoF statistic in this run. The manuscript explicitly notes that the exponential model is rejected for the complete dataset ($p_{GoF} < 0.001$), while the lognormal, stretched exponential, and truncated power-law alternatives do not significantly outperform the power-law model.
 
-```
-Appendix 7.1 Raw Table (Jamison 2017)
-        ↓
-analyze_allsites.py [Data extraction & cleaning]
-        ↓
-guils_valid.txt [139 offering stand types, 413 seals]
-        ↓
-analyze_appendix71.py [Distribution fitting & GoF testing]
-```
+### Cramér’s V confirmation bundle
 
-## Scripts
+The manuscript tests whether stand identity is systematically associated with anatomical attributes. The global results are:
 
-### 1. **analyze_allsites.py**
-Parses Appendix 7.1 from Jamison (2017) and generates cleaned frequency data.
+| Attribute | $n$ | Cramér’s V | $p_{perm}$ | Status |
+|---|---:|---:|---:|---|
+| LEG | 402 | 0.484 | < 0.001 | Significant |
+| HALTER | 407 | 0.431 | < 0.001 | Significant |
+| PIZZLE | 383 | 0.365 | 0.001 | Significant |
+| TAIL | 309 | 0.340 | 0.0038 | Significant |
+| HOOF | 393 | 0.337 | 0.0004 | Significant |
+| HEAD | 388 | 0.330 | 0.0008 | Significant |
+| EAR | 386 | 0.307 | 0.0002 | Significant |
+| NECK | 401 | 0.303 | 0.0008 | Significant |
+| HORN | 389 | 0.294 | 0.0538 | Weak |
+| EYE | 379 | 0.221 | 0.0656 | Weak |
 
-**Output:**
-- `guilds_valid.txt`: Per-type frequencies (139 rows)
-- Supporting data files for analysis
+Across the top 5, 10, and 15 stand tiers, the strongest confirmation bundle is NECK, HALTER, and EAR, with the following mean associations:
 
-### 2. **analyze_guilds.py**
-Bin-mean power law analysis of Table 7.6 (114 types, 429 seals from Jamison Table 7.6).
+- NECK: mean $V = 0.437$
+- HALTER: mean $V = 0.425$
+- EAR: mean $V = 0.362$
 
-**Methodology:**
-- Constructs frequency list from binned data: bin-mean values repeated by type count (e.g., [88/3]*3, [15/1]*1, etc.)
-- Fits power law using `discrete=True` parameter (appropriate for frequency distributions of discrete types)
-- Performs 2500-iteration bootstrap goodness-of-fit test with matching discrete parameter
-- Compares against alternative distributions (exponential, lognormal, stretched exponential, truncated power law)
+The manuscript interprets this as evidence for a scalable visual confirmation protocol in which seal readers rely on a limited set of diagnostic attribute bundles rather than full literacy or script-based verification.
 
-**Output:** `guilds.png`  
-**Command:**
-```bash
-python analyze_guilds.py
-```
+## Data availability
 
-**Results:**
-```
-Exponent (α): 2.594
-x_min: 2.875
-KS Distance: 0.135
-GoF p-value: 0.110 ✓ PASSES
-Alternative comparisons: Power law significantly better than exponential (p<0.001)
-```
+The manuscript’s Data Availability statement is as follows:
 
-**Methodological Note:** This approach fits directly to Table 7.6 binned summary (not per-type data). The `discrete=True` parameter correctly treats the frequency distribution as discrete, yielding robust GoF (p=0.110). Previous versions using `discrete=False` incorrectly rejected the power law (p<0.01), but this was a parameter mismatch issue, not evidence against the hypothesis.
+> All code, data, and reproducibility documentation are openly available in the GitHub repository: https://github.com/dmahesh2869/harappan-seal-analysis
+>
+> The repository is organized in three layers:
+> - Core reproducibility pipeline: primary scripts, validation checks, and run instructions needed to regenerate the manuscript’s main statistical results, tables, and figures.
+> - Supplementary analyses: additional scripts used for robustness checks and exploratory diagnostics (e.g., stand hierarchy, bundle consistency, singleton dispersion, and diachronic analyses).
+> - Versioned outputs: generated CSV, TXT, and PNG artifacts used to audit and verify claims in the manuscript.
+>
+> All analyses are deterministic and reproducible in Python 3.8+ with powerlaw (v2.0.0).
 
-### 3. **analyze_appendix71.py**
-Power law analysis of Appendix 7.1 (139 types, 413 seals with valid stands after excluding 82 unidentified and 5 blank entries).
+This repository follows that structure and is intended to support reproducible regeneration of the paper’s main claims.
 
-**Methodology:**
-- Fits power law to actual per-type frequencies from guilds_valid.txt
-- Performs 2500-iteration bootstrap GoF test
-- Independent structural validation using complete dataset
+## Repository layout
 
-**Output:** `appendix71.png`  
-**Command:**
-```bash
-python analyze_appendix71.py
-```
+The project is organized into three main layers:
 
-**Results:**
-```
-Exponent (α): 2.3591
-KS Distance: 0.051
-GoF p-value: 0.98 ✓ PASSES
-n_tail = 46 (below Clauset ≥100 threshold, but GoF confirms structure)
-```
+1. Core reproducibility pipeline
+   - Primary scripts for power-law fitting, Cramér’s V analysis, and manuscript figures
+   - Validation and data-cleaning routines
+2. Supplementary analyses
+   - Stand hierarchy, bundle consistency, singleton dispersion, and diachronic analyses
+3. Versioned outputs
+   - CSV, TXT, and PNG artifacts used to check and verify the paper results
 
-### 4. **analyze_sites.py**
-Power law analysis of seal distribution across 19 archaeological sites.
+## Main analysis scripts
 
-**Data Source:** Table 7.1 (Jamison 2017)
+The current repository includes scripts that correspond to the manuscript’s analytical workflow, including but not limited to:
 
-**Methodology:**
-- Fits power law to site-level seal counts
-- Tests for hub-and-spoke network topology
+- `analyze_appendix71.py` — complete-dataset power-law fitting for offering stands and other attributes
+- `analyze_seal_attributes.py` — attribute-level distribution analysis
+- `analyze_attribute_hierarchy_by_stand_tier.py` — tiered Cramér’s V analysis across stand groups
+- `analyze_stand_attribute_correlation.py` — global stand-attribute association tests
+- `diachronic_analysis.py` — diachronic power-law checks across periods
+- `compare_attribute_analysis.py` — comparative summaries across attributes
 
-**Output:** `sites.png`  
-**Command:**
-```bash
-python analyze_sites.py
-```
+Scripts are intended to be run from the repository root in a Python 3.8+ environment.
 
-**Results:**
-```
-Exponent (α): 1.55
-KS Distance: 0.094
-GoF p-value: 0.76 ✓ PASSES
-Hub concentration: 76.8% of seals from 2 major sites (10.5% of network)
-```
-
-### 5. **exponential_gof.py**
-Goodness-of-fit test ruling out exponential distribution (Table 7.6).
-
-**Methodology:** Clauset et al. (2009) Section 6
-- Generates exponential distribution with same parameters as data
-- Performs 2500-iteration bootstrap GoF test
-- Result: p<0.001 (exponential independently fails GoF)
-
-**Command:**
-```bash
-python exponential_gof.py
-```
-
-### 6. **exponential_gof_appendix71.py**
-Goodness-of-fit test ruling out exponential distribution (Appendix 7.1).
-
-**Command:**
-```bash
-python exponential_gof_appendix71.py
-```
-
-### 7. **synthetic_guild.py**
-Constrained reconstruction: Generates 5000 synthetic per-type distributions respecting Jamison's binning constraints.
-
-**Purpose:** Validates power law hypothesis by reconstructing plausible per-type frequency distributions that respect Table 7.6 constraints. This addresses the limitation that binned data obscures individual type frequencies.
-
-**Key Constraints Implemented:**
-- Type #16 = 44 seals (fixed)
-- Types #32 + #44 sum to 44 (variable)
-- 49 types appear exactly once (fixed)
-- Bin boundaries and totals preserved
-
-**Methodology:**
-- Generates 5000 random allocations within bin constraints
-- Fits power law to each reconstructed per-type distribution
-- Computes statistics across all reconstructions
-- Identifies best-fit reconstruction (closest to median α)
-
-**Results:**
-```
-Exponent distribution: α = 2.49 ± 0.14 (median α = 2.54)
-Representative best fit: α = 2.36, D = 0.044, GoF p = 0.91 ✓ PASSES
-All 114 types in tail (n_tail = 114)
-```
-
-**Command:**
-```bash
-python synthetic_guild.py
-```
-
-This approach produces the **most robust estimate** given only binned data, with excellent goodness-of-fit (p=0.91). The bin-mean approach (analyze_guilds.py, α=2.594) is also valid but treats bin-means as individual data points rather than reconstructing true per-type distributions.
-
-## Environment Setup
+## Environment and dependencies
 
 ### Requirements
-- Python 3.7.7+ (tested)
+
+- Python 3.8+
 - NumPy
 - SciPy
 - Matplotlib
-- powerlaw v1.5+ (Clauset et al. 2009 implementation)
-  - Note: powerlaw v2.0.0 requires Python 3.8+; both versions produce consistent power law structure but may differ slightly in xmin optimization
+- powerlaw 2.0.0
 
 ### Installation
 
 ```bash
-# Create virtual environment
 python -m venv .venv
-
-# Activate (Windows PowerShell)
-.venv\Scripts\Activate.ps1
-
-# Install dependencies
+. .venv/bin/activate
 pip install numpy scipy matplotlib powerlaw
 ```
 
-### Running All Analyses
+On Windows PowerShell:
 
-```bash
-# Individual analyses
-python analyze_guilds.py
-python analyze_appendix71.py
-python analyze_sites.py
-
-# Exponential GoF tests
-python exponential_gof.py
-python exponential_gof_appendix71.py
-
-# Synthetic distribution check
-python synthetic_guild.py
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install numpy scipy matplotlib powerlaw
 ```
 
-## Data Files
+## Reproducibility notes
 
-- **guilds_valid.txt**: Primary data source (134 offering stand types, per-type frequencies)
-- **guilds.txt**: Supporting data for constrained reconstruction
-- **sites_table.txt**: Site-level seal counts
+- The manuscript’s power-law tests use the `powerlaw` package with maximum-likelihood estimation and bootstrap goodness-of-fit testing.
+- The correlation analyses compute Cramér’s V with pairwise deletion for missing values and apply Bonferroni correction for multiple comparisons.
+- The reported threshold for power-law plausibility is $p > 0.10$.
+- Statistical significance for confirmation-bundle tests uses a corrected threshold of $\alpha = 0.005$ for the tiered analysis and $\alpha = 0.005$ with 10 attributes for the global tests.
 
-## Reproducibility
+## Key references
 
-All analyses are deterministic:
-- Random seeds fixed in `synthetic_guild.py` (np.random.seed(42))
-- Results identical across runs
-- All intermediate calculations preservable via script inspection
+- Clauset, A., Shalizi, C. R., and Newman, M. E. J. (2009). Power-law distributions in empirical data. SIAM Review, 51(4), 661–703.
+- Jamison, G. M. (2017). The Organization of Indus Unicorn Seal Production. University of Wisconsin–Madison dissertation.
+- Alstott, J., Bullmore, E., and Plenz, D. (2014). powerlaw: A Python package for analysis of heavy-tailed distributions. PLoS ONE, 9(4), e85777.
 
-## Statistical Methods
+## Summary
 
-**Power Law Fitting:** Maximum likelihood estimation (Clauset et al. 2009)
-
-**Goodness-of-Fit:** Parametric bootstrap with 2500 iterations
-- Generate synthetic data from fitted power law
-- Refit to synthetic samples
-- Compare KS distances: p = count(synth_KS ≥ obs_KS) / 2500
-- Threshold: p > 0.10 indicates power law cannot be rejected
-
-**Alternative Distributions Tested:**
-- Exponential (ruled out, p<0.001)
-- Lognormal (not significantly different)
-- Stretched exponential (not significantly different)
-- Truncated power law (not significantly different)
-
-## Key References
-
-Clauset, A., Shalizi, C. R., & Newman, M. E. (2009). Power-law distributions in empirical data. *SIAM Review*, 51(4), 661–703.
-
-Jamison, G. M. (2017). The Organization of Indus Unicorn Seal Production: A Diachronic Comparative Study of Style, Skill, and Sociopolitical Organization. Ph.D. dissertation, University of Wisconsin–Madison.
-
-Alstott, J., Bullmore, E., & Plenz, D. (2014). Powerlaw: A Python package for analysis of heavy-tailed distributions. *PLoS ONE*, 9(4), e85777.
-
-## Author Notes
-
-**Dual-Dataset Validation Strategy:**
-This analysis employs two complementary methodologies:
-1. **Table 7.6 (Constrained):** Jamison's reconstructed dataset after applying archaeological constraints. Provides robust parameter estimates (n_tail = 114 ≥ 100 Clauset threshold). Exponent α = 2.36.
-2. **Appendix 7.1 (Complete):** Unfiltered per-type frequencies including all subclassifications. Independently validates distribution structure despite smaller tail sample (n_tail = 47). Exponent α = 2.41, GoF p = 0.71.
-
-The convergence of exponents and consistent GoF results across both methodologies demonstrates that power law structure is robust and not an artifact of data processing choices.
-
-**Limitations:**
-- Appendix 7.1 parameter estimates (n_tail = 47) fall below Clauset et al.'s recommended ≥100 threshold. However, GoF p-value (0.71) independently confirms power law structure is plausible.
-- Site-level analysis limited to 14 sites in power law tail (though still above threshold).
-- Analysis assumes independence of seal types (archaeological context supports this).
+This repository is the computational companion to the manuscript’s argument that Harappan seal variation is structured by heavy-tailed statistical processes and a scalable visual confirmation system. The key evidence is the strong power-law fit for the offering stand and the persistent, stand-dependent Cramér’s V associations that identify the core confirmation bundle.
 
 ## License
 
