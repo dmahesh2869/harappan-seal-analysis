@@ -1,0 +1,29 @@
+
+Iconographic Motif / Animal Type | Mohenjo-daro | Harappa | Chanhu-daro | Lothal | Kalibangan | Banawali | Total
+---------------------------------+--------------+---------+-------------+--------+------------+----------+------
+Unicorn                          | 633          | 75      | 21          | 42     | 26         | 3        | 800
+Urus (Aurochs)                   | 4            | 0       | 0           | 0      | 1          | 2        | 7
+Bison                            | 43           | 7       | 1           | 3      | 3          | 0        | 57
+Zebu (Humped Bull)               | 33           | 4       | 0           | 0      | 1          | 0        | 38
+Water Buffalo                    | 10           | 1       | 0           | 0      | 1          | 2        | 14
+Makhor (Wild Goat)               | 2            | 0       | 0           | 0      | 2          | 2        | 6
+Goat                             | 2            | 0       | 1           | 1      | 1          | 5        | 10
+Rhinoceros                       | 12           | 1       | 0           | 0      | 1          | 1        | 15
+Elephant                         | 31           | 5       | 0           | 0      | 1          | 0        | 37
+Tiger                            | 9            | 1       | 1           | 1      | 1          | 0        | 13
+Horned Tiger                     | 1            | 0       | 0           | 0      | 0          | 1        | 2
+Gharial                          | 2            | 0       | 0           | 0      | 0          | 2        | 4
+Hare                             | 0            | 1       | 0           | 0      | 0          | 0        | 1
+Bird                             | 0            | 0       | 0           | 1      | 0          | 0        | 1
+Multiple Animals                 | 1            | 0       | 0           | 0      | 0          | 0        | 1
+Joined Animals                   | 5            | 0       | 1           | 0      | 1          | 0        | 7
+Composite Animal                 | 10           | 1       | 0           | 0      | 0          | 1        | 12
+Master of Animals                | 4            | 0       | 0           | 0      | 0          | 0        | 4
+Yogic Figure                     | 3            | 0       | 0           | 0      | 1          | 0        | 4
+Figure in Tree & Tiger           | 4            | 0       | 1           | 0      | 1          | 0        | 6
+Action Scenes                    | 2            | 0       | 1           | 0      | 1          | 0        | 4
+Composite Human & Animal         | 3            | 0       | 0           | 0      | 1          | 0        | 4
+Unidentified / ???               | 0            | 0       | 0           | 1      | 0          | 0        | 1
+---------------------------------+--------------+---------+-------------+--------+------------+----------+------
+Total Seals                      | 814          | 96      | 27          | 49     | 43         | 19       | 1048
+Seal Impressions                 | 0            | 0       | 0           | 92     | 12         | 0        | 104
